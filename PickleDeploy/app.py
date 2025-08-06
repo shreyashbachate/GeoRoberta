@@ -14,7 +14,7 @@ st.set_page_config(
 )
 
 # --- Configuration ---
-PICKLE_FILE = 'searcher.pkl'
+PICKLE_FILE = 'PickleDeploy/searcher.pkl'
 
 # --- The SemanticSearcher Class Definition ---
 # This class needs to be defined in the script so that Python's pickle
