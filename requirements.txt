@@ -1,0 +1,10 @@
+scikit-learn
+numpy
+scipy
+transformers
+torch
+spacy
+boto3
+urllib3
+wandb
+tqdm

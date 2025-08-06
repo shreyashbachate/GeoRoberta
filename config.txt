@@ -1,0 +1,12 @@
+python geoRoBERTa_matcher.py `
+>> --data_dir ./DATA `
+>> --task_name matching `
+>> --train_batch_size 32 `
+>> --max_seq_length 64 `
+>> --Roberta_model roberta-base `
+>> --learning_rate 3e-5 `
+>> --num_train_epochs 12 `
+>> --do_train `
+>> --do_eval `
+>> --do_predict `
+>> --output_dir ./output
