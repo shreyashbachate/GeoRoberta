@@ -6,24 +6,20 @@ from sentence_transformers import SentenceTransformer
 import os
 import pickle
 
-# --- Page Configuration ---
 st.set_page_config(
     page_title="Address Semantic Search",
     page_icon="🔎",
     layout="centered"
 )
 
-# --- Configuration ---
-PICKLE_FILE = 'PickleDeploy/searcher.pkl'
 
-# --- The SemanticSearcher Class Definition ---
-# This class needs to be defined in the script so that Python's pickle
-# module knows how to reconstruct the object from the file.
+PICKLE_FILE = 'searcher.pkl'
+
+
 class SemanticSearcher:
     """A class to handle loading the index and performing searches."""
     def __init__(self):
-        # This __init__ method is not actually called when loading from pickle,
-        # but it's good practice to have the class structure defined.
+        
         self.model = None
         self.index = None
         self.id_map_df = None
@@ -51,9 +47,7 @@ class SemanticSearcher:
             })
         return results
 
-# --- Caching Function for Performance ---
-# @st.cache_resource is the correct decorator for loading heavy, non-serializable
-# objects like our searcher instance. It ensures it's loaded only once.
+
 @st.cache_resource
 def load_searcher_from_pickle():
     """Loads the entire SemanticSearcher object from the pickle file."""
@@ -67,14 +61,14 @@ def load_searcher_from_pickle():
             searcher = pickle.load(f)
     return searcher
 
-# --- Main App UI and Logic ---
+
 st.title("🔎 Address Semantic Search")
 st.write("This app uses a pre-loaded search engine to find the most semantically similar addresses from your dataset.")
 
-# Load the searcher object using the cached function
+
 searcher = load_searcher_from_pickle()
 
-# Create a form for the search input
+
 with st.form(key='search_form'):
     query = st.text_input("Enter an address to search", placeholder="e.g., 12829 harper, Detroit")
     submit_button = st.form_submit_button(label='Search')
