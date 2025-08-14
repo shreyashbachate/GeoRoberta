@@ -13,7 +13,7 @@ st.set_page_config(
 )
 
 
-PICKLE_FILE = './PickleDeploy/searcher.pkl'
+PICKLE_FILE = '/PickleDeploy/searcher.pkl'
 
 
 class SemanticSearcher:
